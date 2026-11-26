@@ -22,6 +22,20 @@ cargo build --release --locked --manifest-path legacy/quake_rs/Cargo.toml
 
 从源码构建后，MCP 客户端的 `command` 使用 `target/release/quake-mcp` 的绝对路径。Windows 下文件名为 `quake-mcp.exe`。
 
+## 安装后让 Agent 使用 Quake
+
+用 `cargo install --git` 安装时，Cargo 把 `quake-mcp` 可执行文件放进安装目录的 `bin`。README 和查询手册随仓库源码提供，克隆 `feat/quake-mcp` 分支即可在 `docs/mcp-query-guide.md` 找到手册。只安装了可执行文件时，请将手册下载到 Agent 可读取的项目目录或知识库。 [下载查询手册 Markdown](https://raw.githubusercontent.com/nikKrian/quake_rs/refs/heads/feat/quake-mcp/docs/mcp-query-guide.md)
+
+MCP 连接后会提供工具说明和参数 schema。完整的查询语法和示例通过项目指令或会话交给 Agent。将下面这段加入它的指令，并把文件路径替换成手册的实际位置。
+
+```text
+使用 Quake MCP 前，先读 docs/mcp-query-guide.md。
+按任务选 host 或 service。查询条件用 Quake DSL，返回字段和聚合维度用 quake_fields 确认。
+在用户授权的域名或 IP 范围内先用 size=1 查询，读取结构化结果，任务需要时才续页。
+```
+
+首次接入可先用 `quake_account_info` 验证认证，再用已被 Quake 收录的自有资产做一次单条查询。 [首次查询验收步骤](docs/mcp-query-guide.md#首次查询验收)
+
 ## 工具
 
 `dataset` 取 `service` 或 `host`。`query` 使用 Quake DSL。时间参数采用 UTC 的 `YYYY-MM-DD HH:MM:SS` 格式，是否可用由账号权限决定。
