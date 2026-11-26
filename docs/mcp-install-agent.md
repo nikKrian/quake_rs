@@ -75,8 +75,8 @@ env_vars = ['QUAKE_TOKEN']
 
 成功结果的 `structuredContent.data` 含 `monthly_credits`、`persistent_credits`、`blocked`。工具失败时读取 `isError` 和 `structuredContent.error.code`。鉴权错误时检查密钥注入，刷新配置后重新开启会话。凭证暂缺时，将工具发现和实际认证分别报告。
 
-## 首次资产查询
+## 交接查询能力
 
-查询自有或已授权资产时，使用 `quake_fields` 发现投影或聚合字段。单页优先用 `quake_search`，用 `next_start` 替换 `start`。需要游标时先调用 `quake_scroll`，续页只传上一页返回的 `next_cursor`，并在 `has_more=false` 时结束。历史服务查询用 `latest=false` 和明确的 UTC 时间范围，主机查询省略 `latest`。资产搜索和聚合可能消耗积分，超时后先核对再重试。 [查询工具说明](../README.md#工具)
+将 [查询手册](mcp-query-guide.md) 的路径或内容和 [可复制的调用指令](mcp-query-guide.md#交给其他-agent) 放到目标 Agent 可读的上下文中。配置 `stdio` 后，Agent 能发现工具参数，完整的查询手册需要单独提供。
 
-完成后报告仓库引用、实际二进制路径、客户端名称、工具发现状态和认证状态。
+用户提供自有或已授权的域名或 IP 后，按手册执行 [单条查询验收](mcp-query-guide.md#首次查询验收)。完成后报告仓库引用、实际二进制路径、客户端名称、工具发现、认证及查询验收状态。

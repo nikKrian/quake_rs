@@ -6,6 +6,7 @@
 
 - [面向人的安装与接入文档](docs/mcp-install.md) 提供 Windows、Linux 和 macOS 的安装命令、客户端配置和排错步骤。
 - [面向 Agent 的安装手册](docs/mcp-install-agent.md) 提供可执行的安装步骤、配置模板和 MCP 验收流程。
+- [查询语法与 Agent 使用手册](docs/mcp-query-guide.md) 提供 Quake DSL、工具调用示例和可复制到其他 Agent 的指令。
 
 安装当前稳定版 Rust。Linux 上构建还需要 OpenSSL 开发库和 `pkg-config`。
 

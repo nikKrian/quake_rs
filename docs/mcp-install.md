@@ -85,6 +85,8 @@ Windows 的 JSON 路径可以写成 `C:/Users/your-name/AppData/Local/quake-mcp/
 
 在新会话中让客户端调用 `quake_account_info`，参数用 `{}`。成功时会返回账号停用状态、月度积分和永久积分。需要验证检索时，再用自有资产运行一次 `quake_search`，将 `size` 设为 `1`。搜索和聚合可能扣除积分。
 
+接入其他 Agent 时，把 [使用手册中的 Agent 指令](mcp-query-guide.md#交给其他-agent) 放进客户端项目指令或会话，让它能查阅 DSL 规则、调用示例和结果判读方法。
+
 | 现象 | 检查 |
 | --- | --- |
 | 找不到程序 | 确认 `command` 指向实际存在的绝对路径，Windows 保留 `.exe`。 |
